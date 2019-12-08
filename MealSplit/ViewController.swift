@@ -24,7 +24,7 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     }
     
     @IBOutlet weak var personsCollectionView: UICollectionView!
-    @IBOutlet weak var receiptResultTableView: UITableView!
+    @IBOutlet weak var itemsTableView: UITableView!
     @IBOutlet weak var initialScanReceiptButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
     var textRecognitionRequest = VNRecognizeTextRequest()
@@ -37,8 +37,8 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
         
         personsCollectionView.delegate = self
         personsCollectionView.dataSource = self
-        receiptResultTableView.delegate = self
-        receiptResultTableView.dataSource = self
+        itemsTableView.delegate = self
+        itemsTableView.dataSource = self
                 
         if persons.personArray.isEmpty {
             persons.personArray.append(PersonData(image: UIImage(named: "contact")!, name: "You"))
@@ -81,7 +81,7 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
                     }
                 }
             }
-            self.receiptResultTableView.reloadData()
+            self.itemsTableView.reloadData()
             self.foodItemsChanged()
         }
         textRecognitionRequest.recognitionLevel = .accurate
@@ -95,6 +95,8 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
             items.otherItemDictionary["tax"] = 0.0
             items.otherItemDictionary["tip"] = 0.0
             initialScanReceiptButton.isHidden = false
+            personsCollectionView.reloadData()
+            itemsTableView.reloadData()
         }
         ResetManager.sharedResetManager.reset = false
     }
@@ -164,7 +166,7 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     
     @IBAction func addItemPressed(_ sender: UIButton) {
         items.foodItemArray.append(FoodItemData())
-        receiptResultTableView.reloadData()
+        itemsTableView.reloadData()
     }
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -212,7 +214,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             if indexPath.row < items.foodItemArray.count {
-                let foodItemCell = receiptResultTableView.dequeueReusableCell(withIdentifier: "FoodItemCell", for: indexPath) as! FoodItemTableViewCell
+                let foodItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "FoodItemCell", for: indexPath) as! FoodItemTableViewCell
                 foodItemCell.itemTextField.tag = indexPath.row
                 foodItemCell.priceTextField.tag = indexPath.row
                 foodItemCell.deleteCellButton.tag = indexPath.row
@@ -223,11 +225,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 foodItemCell.deleteCellButton.addTarget(self, action: #selector(deleteCellPressed(_:)), for: UIControl.Event.touchUpInside)
                 return foodItemCell
             }
-            let addItemCell = receiptResultTableView.dequeueReusableCell(withIdentifier: "AddItemCell", for: indexPath)
+            let addItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "AddItemCell", for: indexPath)
             return addItemCell
         }
         //TODO: Change to two cells, tax and tip with buttons
-        let otherItemCell = receiptResultTableView.dequeueReusableCell(withIdentifier: "OtherItemCell", for: indexPath) as! OtherItemTableViewCell
+        let otherItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "OtherItemCell", for: indexPath) as! OtherItemTableViewCell
         otherItemCell.priceTextField.tag = indexPath.row
         let otherItemArray = ["tax", "tip"]
         let currentOtherItem = otherItemArray[indexPath.row]
@@ -250,7 +252,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     @objc func deleteCellPressed(_ sender: UIButton) {
         items.foodItemArray.remove(at: sender.tag)
-        receiptResultTableView.reloadData()
+        itemsTableView.reloadData()
         foodItemsChanged()
     }
     

@@ -371,8 +371,8 @@
                     <connections>
                         <outlet property="continueButton" destination="Kca-9k-HuL" id="bOB-H2-Pm6"/>
                         <outlet property="initialScanReceiptButton" destination="vax-oB-E3X" id="0z0-Ya-gMP"/>
+                        <outlet property="itemsTableView" destination="6Jj-gc-fKT" id="Mpa-GT-gbB"/>
                         <outlet property="personsCollectionView" destination="Mwa-Ux-hWN" id="dKY-j3-deT"/>
-                        <outlet property="receiptResultTableView" destination="6Jj-gc-fKT" id="Mpa-GT-gbB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
