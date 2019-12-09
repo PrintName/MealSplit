@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SeW-UR-tkb">
-                                <rect key="frame" x="20" y="802" width="40" height="40"/>
+                                <rect key="frame" x="20" y="802" width="60" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.49257690910000002" blue="0.36711855300000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="D7c-z2-G8M"/>
-                                    <constraint firstAttribute="width" constant="40" id="Pey-YE-ICI"/>
+                                    <constraint firstAttribute="width" constant="60" id="Pey-YE-ICI"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="camera" catalog="system">
@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kca-9k-HuL">
-                                <rect key="frame" x="75" y="802" width="319" height="40"/>
+                                <rect key="frame" x="95" y="802" width="299" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.49257690910000002" blue="0.36711855300000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ULN-uf-c2K"/>
@@ -233,14 +233,14 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sdn-Ch-MSa">
-                                                    <rect key="frame" x="1" y="4" width="58" height="58"/>
+                                                    <rect key="frame" x="6" y="4" width="58" height="58"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="58" id="2wa-fS-b16"/>
                                                         <constraint firstAttribute="width" constant="58" id="IuD-db-TNj"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNU-Oh-zGp">
-                                                    <rect key="frame" x="0.0" y="61" width="60" height="16"/>
+                                                    <rect key="frame" x="0.0" y="65" width="70" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="Y36-Gf-5Z2"/>
                                                     </constraints>
@@ -272,7 +272,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FY6-So-71r">
-                                                    <rect key="frame" x="15" y="61" width="30" height="16"/>
+                                                    <rect key="frame" x="20" y="65" width="30" height="16"/>
                                                     <color key="tintColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="1ug-q4-JyO"/>
@@ -283,7 +283,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAf-xc-d6y">
-                                                    <rect key="frame" x="1" y="4" width="58" height="58"/>
+                                                    <rect key="frame" x="6" y="4" width="58" height="58"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="58" id="KLe-WR-fYC"/>
@@ -388,7 +388,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dvo-Mt-qx1">
-                                <rect key="frame" x="75" y="802" width="319" height="40"/>
+                                <rect key="frame" x="95" y="802" width="299" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.49257690910000002" blue="0.36711855300000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Wds-Tj-Kwi"/>
@@ -482,11 +482,11 @@
                                 </userDefinedRuntimeAttributes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRq-WS-ylg">
-                                <rect key="frame" x="20" y="802" width="40" height="40"/>
+                                <rect key="frame" x="20" y="802" width="60" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.49257690910000002" blue="0.36711855300000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Oe3-c4-Xhz"/>
-                                    <constraint firstAttribute="width" constant="40" id="umN-HD-8pC"/>
+                                    <constraint firstAttribute="width" constant="60" id="umN-HD-8pC"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="return" catalog="system">
@@ -561,7 +561,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pid-th-Pga">
-                                <rect key="frame" x="75" y="802" width="319" height="40"/>
+                                <rect key="frame" x="95" y="802" width="299" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.49257690910000002" blue="0.36711855300000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="tdz-4R-sNb"/>
@@ -586,10 +586,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osA-JV-M4f">
-                                <rect key="frame" x="20" y="802" width="40" height="40"/>
+                                <rect key="frame" x="20" y="802" width="60" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.49257690910000002" blue="0.36711855300000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="9mX-qh-cBk"/>
+                                    <constraint firstAttribute="width" constant="60" id="9mX-qh-cBk"/>
                                     <constraint firstAttribute="height" constant="40" id="qbO-tW-ZWU"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
