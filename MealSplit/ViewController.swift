@@ -326,7 +326,10 @@ extension ViewController: CNContactPickerDelegate {
             if contact.imageDataAvailable {
                 image = UIImage(data: contact.thumbnailImageData!)!
             }
-            let name = contact.givenName
+            var name = contact.givenName.capitalized
+            if name.count == 0 {
+                name = contact.familyName.capitalized
+            }
             persons.personArray.append(PersonData(image: image, name: name))
         }
         self.personsCollectionView.reloadData()
