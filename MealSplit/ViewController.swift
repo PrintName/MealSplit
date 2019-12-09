@@ -183,7 +183,7 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return persons.personArray.count + 1
+        return persons.personArray.count + 1 // 1 cell for "Add" button
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -191,10 +191,21 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             let personCell = personsCollectionView.dequeueReusableCell(withReuseIdentifier: "PersonCell", for: indexPath) as! PersonCollectionViewCell
             personCell.personImage?.image = persons.personArray[indexPath.row].image
             personCell.nameLabel?.text = persons.personArray[indexPath.row].name
+            let tapped = UITapGestureRecognizer(target: self, action: #selector(self.personCellTapped(sender:)))
+            personCell.addGestureRecognizer(tapped)
+            personCell.tag = indexPath.row
             return personCell
         }
         let addPersonCell = personsCollectionView.dequeueReusableCell(withReuseIdentifier: "AddPersonCell", for: indexPath)
         return addPersonCell
+    }
+    
+    @objc func personCellTapped(sender: UITapGestureRecognizer) {
+        let tappedCellIndex = sender.view!.tag
+        if tappedCellIndex > 0 {
+            persons.personArray.remove(at: tappedCellIndex)
+            personsCollectionView.reloadData()
+        }
     }
         
 }
@@ -206,7 +217,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return items.foodItemArray.count + 1
+            return items.foodItemArray.count + 1 // 1 Cell for "Add Items" Button
         }
         return 2
     }
@@ -215,9 +226,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             if indexPath.row < items.foodItemArray.count {
                 let foodItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "FoodItemCell", for: indexPath) as! FoodItemTableViewCell
-                foodItemCell.itemTextField.tag = indexPath.row
-                foodItemCell.priceTextField.tag = indexPath.row
-                foodItemCell.deleteCellButton.tag = indexPath.row
+                foodItemCell.itemTextField?.tag = indexPath.row
+                foodItemCell.priceTextField?.tag = indexPath.row
+                foodItemCell.deleteCellButton?.tag = indexPath.row
                 foodItemCell.itemTextField?.text = items.foodItemArray[indexPath.row].name.capitalized
                 foodItemCell.priceTextField?.text = NSString(format: "%.2f", items.foodItemArray[indexPath.row].price) as String
                 foodItemCell.itemTextField.addTarget(self, action: #selector(foodItemTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
@@ -230,7 +241,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         //TODO: Change to two cells, tax and tip with buttons
         let otherItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "OtherItemCell", for: indexPath) as! OtherItemTableViewCell
-        otherItemCell.priceTextField.tag = indexPath.row
+        otherItemCell.priceTextField?.tag = indexPath.row
         let otherItemArray = ["tax", "tip"]
         let currentOtherItem = otherItemArray[indexPath.row]
         otherItemCell.otherTextLabel?.text = currentOtherItem.capitalized
