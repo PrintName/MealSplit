@@ -233,11 +233,16 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sdn-Ch-MSa">
-                                                    <rect key="frame" x="6" y="4" width="58" height="58"/>
+                                                    <rect key="frame" x="8" y="6" width="54" height="54"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="58" id="2wa-fS-b16"/>
-                                                        <constraint firstAttribute="width" constant="58" id="IuD-db-TNj"/>
+                                                        <constraint firstAttribute="height" constant="54" id="2wa-fS-b16"/>
+                                                        <constraint firstAttribute="width" constant="54" id="IuD-db-TNj"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="27"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNU-Oh-zGp">
                                                     <rect key="frame" x="0.0" y="65" width="70" height="16"/>
@@ -251,7 +256,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Sdn-Ch-MSa" firstAttribute="centerX" secondItem="nxf-H9-9MQ" secondAttribute="centerX" id="OIW-EF-vZr"/>
-                                                <constraint firstItem="Sdn-Ch-MSa" firstAttribute="top" secondItem="nxf-H9-9MQ" secondAttribute="top" constant="4" id="VdD-PO-h3T"/>
+                                                <constraint firstItem="Sdn-Ch-MSa" firstAttribute="top" secondItem="nxf-H9-9MQ" secondAttribute="top" constant="6" id="VdD-PO-h3T"/>
                                                 <constraint firstAttribute="bottom" secondItem="lNU-Oh-zGp" secondAttribute="bottom" constant="2" id="e8Z-a5-vXr"/>
                                                 <constraint firstAttribute="trailing" secondItem="lNU-Oh-zGp" secondAttribute="trailing" id="fSK-up-QSf"/>
                                                 <constraint firstItem="lNU-Oh-zGp" firstAttribute="leading" secondItem="nxf-H9-9MQ" secondAttribute="leading" id="uuy-yw-YpT"/>
@@ -283,11 +288,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAf-xc-d6y">
-                                                    <rect key="frame" x="6" y="4" width="58" height="58"/>
+                                                    <rect key="frame" x="8" y="6" width="54" height="54"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="58" id="KLe-WR-fYC"/>
-                                                        <constraint firstAttribute="width" constant="58" id="goT-oZ-YCq"/>
+                                                        <constraint firstAttribute="height" constant="54" id="KLe-WR-fYC"/>
+                                                        <constraint firstAttribute="width" constant="54" id="goT-oZ-YCq"/>
                                                     </constraints>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" image="addContact">
@@ -307,7 +312,7 @@
                                             <constraints>
                                                 <constraint firstItem="FY6-So-71r" firstAttribute="centerX" secondItem="FAf-xc-d6y" secondAttribute="centerX" id="5LX-QL-3Ag"/>
                                                 <constraint firstItem="FAf-xc-d6y" firstAttribute="centerX" secondItem="h1I-iQ-rIz" secondAttribute="centerX" id="G1C-0u-RzI"/>
-                                                <constraint firstItem="FAf-xc-d6y" firstAttribute="top" secondItem="h1I-iQ-rIz" secondAttribute="top" constant="4" id="PKg-xJ-U67"/>
+                                                <constraint firstItem="FAf-xc-d6y" firstAttribute="top" secondItem="h1I-iQ-rIz" secondAttribute="top" constant="6" id="PKg-xJ-U67"/>
                                                 <constraint firstAttribute="bottom" secondItem="FY6-So-71r" secondAttribute="bottom" constant="2" id="xY1-DV-4VM"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -632,6 +637,11 @@
                                                                 <constraint firstAttribute="height" constant="58" id="Rmn-ml-KdS"/>
                                                                 <constraint firstAttribute="width" constant="58" id="nZ8-ou-y4c"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="29"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfw-fT-BXl">
                                                             <rect key="frame" x="106" y="35" width="260" height="30"/>
@@ -727,7 +737,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addContact" width="60" height="60"/>
+        <image name="addContact" width="56" height="56"/>
         <image name="camera" catalog="system" width="64" height="48"/>
         <image name="return" catalog="system" width="64" height="50"/>
         <image name="trash" catalog="system" width="60" height="64"/>
