@@ -251,10 +251,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func foodItemTextFieldValueChanged(_ sender: UITextField) {
+        if items.foodItemArray.count <= sender.tag { return } // Prevent crash when deleting cell while editing
         items.foodItemArray[sender.tag].name = sender.text!
     }
     
     @objc func foodPriceTextFieldValueChanged(_ sender: UITextField) {
+        if items.foodItemArray.count <= sender.tag { return } // Prevent crash when deleting cell while editing
         let newPriceValue = Double(sender.text!) ?? 0.0
         sender.text = NSString(format: "%.2f", newPriceValue) as String
         items.foodItemArray[sender.tag].price = newPriceValue
