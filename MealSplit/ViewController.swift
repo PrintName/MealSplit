@@ -91,6 +91,7 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         if ResetManager.sharedResetManager.reset == true {
             persons.personArray.removeSubrange(1..<persons.personArray.count)
+            persons.personArray[0].moneyOwed = 0.0
             items.foodItemArray.removeAll()
             items.otherItemDictionary["tax"] = 0.0
             items.otherItemDictionary["tip"] = 0.0
