@@ -6,7 +6,6 @@
 //  Copyright © 2019 Allen Li. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 struct PersonData {
