@@ -41,7 +41,7 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
         itemsTableView.dataSource = self
                 
         if persons.personArray.isEmpty {
-            persons.personArray.append(PersonData(image: UIImage(named: "contact")!, name: "You"))
+            persons.personArray.append(Person(image: UIImage(named: "contact")!, name: "You"))
         }
         
         continueButton.isEnabled = false
@@ -73,7 +73,7 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
                     let priceResult = Double(priceMatches[0]) ?? 0.0
                     if !nonFoodKeywords.contains(where: nameResult.lowercased().contains) {
                         let trimmedNameResult = nameResult.trimmingCharacters(in: .whitespacesAndNewlines)
-                        self.items.foodItemArray.append(FoodItemData(name: trimmedNameResult, price: priceResult))
+                        self.items.foodItemArray.append(FoodItem(name: trimmedNameResult, price: priceResult))
                     } else if nameResult.lowercased().contains("tax") {
                         self.items.otherItemDictionary["tax"] = priceResult
                     } else if nameResult.lowercased().contains("tip") || nameResult.lowercased().contains("gratuity") {
@@ -166,7 +166,7 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     }
     
     @IBAction func addItemPressed(_ sender: UIButton) {
-        items.foodItemArray.append(FoodItemData())
+        items.foodItemArray.append(FoodItem())
         itemsTableView.reloadData()
     }
         
@@ -333,7 +333,7 @@ extension ViewController: CNContactPickerDelegate {
             if name.count == 0 {
                 name = contact.familyName.capitalized
             }
-            persons.personArray.append(PersonData(image: image, name: name))
+            persons.personArray.append(Person(image: image, name: name))
         }
         self.personsCollectionView.reloadData()
     }

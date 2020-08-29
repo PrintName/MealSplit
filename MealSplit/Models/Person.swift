@@ -1,5 +1,5 @@
 //
-//  PersonData.swift
+//  Person.swift
 //  MealSplit
 //
 //  Created by Allen Li on 12/2/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct PersonData {
+struct Person {
     var image: UIImage = UIImage()
     var name: String = ""
     var moneyOwed: Double = 0.0

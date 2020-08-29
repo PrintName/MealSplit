@@ -15,9 +15,9 @@
 		9F25B38B23864F1600B3CC00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F25B38A23864F1600B3CC00 /* Assets.xcassets */; };
 		9F25B38E23864F1600B3CC00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F25B38C23864F1600B3CC00 /* LaunchScreen.storyboard */; };
 		9F32BC6E23973F22006B788A /* AssignmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F32BC6D23973F22006B788A /* AssignmentTableViewCell.swift */; };
-		9F33F4602395AEB9003E3FBD /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F33F45F2395AEB9003E3FBD /* PersonData.swift */; };
+		9F33F4602395AEB9003E3FBD /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F33F45F2395AEB9003E3FBD /* Person.swift */; };
 		9F33F4622395AED0003E3FBD /* Persons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F33F4612395AED0003E3FBD /* Persons.swift */; };
-		9FB5D89E23958D0C00561EEE /* FoodItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5D89D23958D0C00561EEE /* FoodItemData.swift */; };
+		9FB5D89E23958D0C00561EEE /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5D89D23958D0C00561EEE /* FoodItem.swift */; };
 		9FD9F0692397C91C00920DFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FD9F0682397C91C00920DFA /* Main.storyboard */; };
 		9FD9F0752397CC6100920DFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9F0742397CC6100920DFA /* ViewController.swift */; };
 		9FD9F0772397CCE200920DFA /* OtherItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9F0762397CCE200920DFA /* OtherItemTableViewCell.swift */; };
@@ -39,9 +39,9 @@
 		9F25B38D23864F1600B3CC00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F25B38F23864F1600B3CC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F32BC6D23973F22006B788A /* AssignmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentTableViewCell.swift; sourceTree = "<group>"; };
-		9F33F45F2395AEB9003E3FBD /* PersonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
+		9F33F45F2395AEB9003E3FBD /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		9F33F4612395AED0003E3FBD /* Persons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persons.swift; sourceTree = "<group>"; };
-		9FB5D89D23958D0C00561EEE /* FoodItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemData.swift; sourceTree = "<group>"; };
+		9FB5D89D23958D0C00561EEE /* FoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
 		9FD9F0682397C91C00920DFA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9FD9F0742397CC6100920DFA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9FD9F0762397CCE200920DFA /* OtherItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -116,8 +116,8 @@
 		9F83D9C924FAFFE900210938 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9FB5D89D23958D0C00561EEE /* FoodItemData.swift */,
-				9F33F45F2395AEB9003E3FBD /* PersonData.swift */,
+				9FB5D89D23958D0C00561EEE /* FoodItem.swift */,
+				9F33F45F2395AEB9003E3FBD /* Person.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,9 +285,9 @@
 				9F32BC6E23973F22006B788A /* AssignmentTableViewCell.swift in Sources */,
 				9F33F4622395AED0003E3FBD /* Persons.swift in Sources */,
 				9FD9F07B2397CF0800920DFA /* Items.swift in Sources */,
-				9FB5D89E23958D0C00561EEE /* FoodItemData.swift in Sources */,
+				9FB5D89E23958D0C00561EEE /* FoodItem.swift in Sources */,
 				9FD9F07F2397CF3800920DFA /* PersonCollectionViewCell.swift in Sources */,
-				9F33F4602395AEB9003E3FBD /* PersonData.swift in Sources */,
+				9F33F4602395AEB9003E3FBD /* Person.swift in Sources */,
 				9FD9F0752397CC6100920DFA /* ViewController.swift in Sources */,
 				9F25B38423864F1600B3CC00 /* AppDelegate.swift in Sources */,
 				9F1EA18A2399C8AC006FCA8F /* LastViewController.swift in Sources */,
