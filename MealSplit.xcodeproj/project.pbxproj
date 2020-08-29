@@ -32,7 +32,7 @@
 		58C3AFF6B1265384542A8064 /* Pods-MealSplit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MealSplit.release.xcconfig"; path = "Target Support Files/Pods-MealSplit/Pods-MealSplit.release.xcconfig"; sourceTree = "<group>"; };
 		9F1EA1892399C8AC006FCA8F /* LastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastViewController.swift; sourceTree = "<group>"; };
 		9F1EA18B2399C908006FCA8F /* MoneyOwedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyOwedTableViewCell.swift; sourceTree = "<group>"; };
-		9F1EA18D239A22E7006FCA8F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F1EA18D239A22E7006FCA8F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = MealSplit/Resources/Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F25B38023864F1600B3CC00 /* MealSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F25B38323864F1600B3CC00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F25B38A23864F1600B3CC00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,25 +103,65 @@
 			isa = PBXGroup;
 			children = (
 				9F25B38323864F1600B3CC00 /* AppDelegate.swift */,
+				9F25B38F23864F1600B3CC00 /* Info.plist */,
+				9F83D9CB24FB014400210938 /* Resources */,
+				9F83D9C924FAFFE900210938 /* Models */,
+				9F83D9CA24FB011F00210938 /* View Models */,
+				9F83D9CD24FB02D600210938 /* View Cells */,
+				9F83D9CC24FB014E00210938 /* View Controllers */,
+			);
+			path = MealSplit;
+			sourceTree = "<group>";
+		};
+		9F83D9C924FAFFE900210938 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9FB5D89D23958D0C00561EEE /* FoodItemData.swift */,
+				9F33F45F2395AEB9003E3FBD /* PersonData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9F83D9CA24FB011F00210938 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				9FD9F07A2397CF0800920DFA /* Items.swift */,
+				9F33F4612395AED0003E3FBD /* Persons.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		9F83D9CB24FB014400210938 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9F1EA18D239A22E7006FCA8F /* Podfile */,
+				9F25B38A23864F1600B3CC00 /* Assets.xcassets */,
+				9F25B38C23864F1600B3CC00 /* LaunchScreen.storyboard */,
+				9FD9F0682397C91C00920DFA /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9F83D9CC24FB014E00210938 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				9FD9F0742397CC6100920DFA /* ViewController.swift */,
 				9FD9F0782397CED600920DFA /* SecondViewController.swift */,
 				9F1EA1892399C8AC006FCA8F /* LastViewController.swift */,
-				9FB5D89D23958D0C00561EEE /* FoodItemData.swift */,
-				9FD9F07A2397CF0800920DFA /* Items.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9F83D9CD24FB02D600210938 /* View Cells */ = {
+			isa = PBXGroup;
+			children = (
 				9FD9F07C2397CF2100920DFA /* FoodItemTableViewCell.swift */,
 				9FD9F0762397CCE200920DFA /* OtherItemTableViewCell.swift */,
 				9F32BC6D23973F22006B788A /* AssignmentTableViewCell.swift */,
 				9F1EA18B2399C908006FCA8F /* MoneyOwedTableViewCell.swift */,
-				9F33F45F2395AEB9003E3FBD /* PersonData.swift */,
-				9F33F4612395AED0003E3FBD /* Persons.swift */,
 				9FD9F07E2397CF3800920DFA /* PersonCollectionViewCell.swift */,
-				9FD9F0682397C91C00920DFA /* Main.storyboard */,
-				9F25B38A23864F1600B3CC00 /* Assets.xcassets */,
-				9F25B38C23864F1600B3CC00 /* LaunchScreen.storyboard */,
-				9F25B38F23864F1600B3CC00 /* Info.plist */,
-				9F1EA18D239A22E7006FCA8F /* Podfile */,
 			);
-			path = MealSplit;
+			path = "View Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
