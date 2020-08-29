@@ -9,7 +9,7 @@
 import Foundation
 
 struct FoodItem {
-    var name: String = ""
-    var price: Double = 0.0
-    var paidBy: Int = 0  // [Shared, User, Others...]
+  var name: String = ""
+  var price: Double = 0.0
+  var paidBy: Int = 0  // [Shared, User, Others...]
 }

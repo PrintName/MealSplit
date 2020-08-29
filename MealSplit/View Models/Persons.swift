@@ -9,5 +9,5 @@
 import Foundation
 
 class Persons {
-    var personArray: [Person] = []
+  var personArray: [Person] = []
 }

@@ -9,6 +9,6 @@
 import UIKit
 
 class OtherItemTableViewCell: UITableViewCell {
-    @IBOutlet weak var otherTextLabel: UILabel!
-    @IBOutlet weak var priceTextField: UITextField!
+  @IBOutlet weak var otherTextLabel: UILabel!
+  @IBOutlet weak var priceTextField: UITextField!
 }

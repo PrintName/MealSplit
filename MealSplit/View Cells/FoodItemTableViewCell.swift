@@ -9,7 +9,7 @@
 import UIKit
 
 class FoodItemTableViewCell: UITableViewCell {
-    @IBOutlet weak var itemTextField: UITextField!
-    @IBOutlet weak var priceTextField: UITextField!
-    @IBOutlet weak var deleteCellButton: UIButton!
+  @IBOutlet weak var itemTextField: UITextField!
+  @IBOutlet weak var priceTextField: UITextField!
+  @IBOutlet weak var deleteCellButton: UIButton!
 }

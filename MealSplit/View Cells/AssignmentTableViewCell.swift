@@ -9,7 +9,7 @@
 import UIKit
 
 class AssignmentTableViewCell: UITableViewCell {
-    @IBOutlet weak var itemLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var assignmentSegmentedControl: UISegmentedControl!
+  @IBOutlet weak var itemLabel: UILabel!
+  @IBOutlet weak var priceLabel: UILabel!
+  @IBOutlet weak var assignmentSegmentedControl: UISegmentedControl!
 }

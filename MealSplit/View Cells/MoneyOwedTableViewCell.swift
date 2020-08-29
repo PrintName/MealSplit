@@ -9,7 +9,7 @@
 import UIKit
 
 class MoneyOwedTableViewCell: UITableViewCell {
-    @IBOutlet weak var personImage: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var moneyOwedLabel: UILabel!
+  @IBOutlet weak var personImage: UIImageView!
+  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var moneyOwedLabel: UILabel!
 }

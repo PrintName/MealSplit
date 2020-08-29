@@ -9,7 +9,7 @@
 import UIKit
 
 struct Person {
-    var image: UIImage = UIImage()
-    var name: String = ""
-    var moneyOwed: Double = 0.0
+  var image: UIImage = UIImage()
+  var name: String = ""
+  var moneyOwed: Double = 0.0
 }

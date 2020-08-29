@@ -9,9 +9,9 @@
 import Foundation
 
 class Items {
-    var foodItemArray: [FoodItem] = []
-    var otherItemDictionary: [String:Double] = [
-        "tax" : 0.0,
-        "tip" : 0.0,
-    ]
+  var foodItemArray: [FoodItem] = []
+  var otherItemDictionary: [String:Double] = [
+    "tax" : 0.0,
+    "tip" : 0.0,
+  ]
 }
