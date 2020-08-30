@@ -260,6 +260,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         foodItemCell.priceTextField?.text = NSString(format: "%.2f", items.foodItemArray[indexPath.row].price) as String
         foodItemCell.itemTextField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: UIControl.Event.editingDidBegin)
         foodItemCell.itemTextField.addTarget(self, action: #selector(foodItemTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
+        foodItemCell.itemTextField.addTarget(self, action: #selector(foodItemTextFieldDidFinishEditing(_:)), for: UIControl.Event.editingDidEnd)
         foodItemCell.priceTextField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: UIControl.Event.editingDidBegin)
         foodItemCell.priceTextField.addTarget(self, action: #selector(foodPriceTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
         foodItemCell.deleteCellButton.addTarget(self, action: #selector(deleteCellPressed(_:)), for: UIControl.Event.touchUpInside)
@@ -288,12 +289,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   // MARK: - TableView Actions
   
   @objc func textFieldDidBeginEditing(_ sender: UITextField) {
-    sender.text = ""
+    if sender.text != "" {
+      sender.placeholder = sender.text
+      sender.text = ""
+    }
   }
   
   @objc func foodItemTextFieldValueChanged(_ sender: UITextField) {
     if items.foodItemArray.count <= sender.tag { return } // Prevent crash when deleting cell while editing
     items.foodItemArray[sender.tag].name = sender.text!
+  }
+  
+  @objc func foodItemTextFieldDidFinishEditing(_ sender: UITextField) {
+    sender.placeholder = "Item"
   }
   
   @objc func foodPriceTextFieldValueChanged(_ sender: UITextField) {
