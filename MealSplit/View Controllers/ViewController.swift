@@ -137,7 +137,9 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     }
     
     let tipItemTableViewCell = itemsTableView.cellForRow(at: IndexPath(row: 1, section: 1)) as! TipItemTableViewCell
-    calculateNewTipValue(tipItemTableViewCell.tipSegmentedControl)
+    if tipItemTableViewCell.tipSegmentedControl.selectedSegmentIndex != -1 {
+      calculateNewTipValue(tipItemTableViewCell.tipSegmentedControl)
+    }
     
     if totalFoodPrice == 0 {
       continueButton.isEnabled = false
