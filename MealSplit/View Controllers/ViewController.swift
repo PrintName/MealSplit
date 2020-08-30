@@ -44,27 +44,34 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     }
     
     continueButton.isEnabled = false
-    
+  
+    createTextRecognitionRequest()
+  }
+  
+  func createTextRecognitionRequest() {
     textRecognitionRequest = VNRecognizeTextRequest { (request, error) in
       let textRecognitionObservations = self.textRecognitionRequest.results as! [VNRecognizedTextObservation]
       guard !textRecognitionObservations.isEmpty else { return }
       var detectedTexts = [""]
-      var detectedTextIndex = 0
+      var detectedTextLineIndex = 0
       let maxCandidates = 1
       var lineYCoordinate = Double(textRecognitionObservations[0].boundingBox.midY)
+      
       for observation in textRecognitionObservations {
         guard let topCandidate = observation.topCandidates(maxCandidates).first else { continue }
         let boundingYCoordinate = Double(observation.boundingBox.midY)
         let maxYCoordinateDifference = 0.015
         if abs(boundingYCoordinate - lineYCoordinate) < maxYCoordinateDifference {
-          detectedTexts[detectedTextIndex] += topCandidate.string
+          detectedTexts[detectedTextLineIndex] += topCandidate.string
         } else {
           lineYCoordinate = boundingYCoordinate
-          detectedTextIndex += 1
+          detectedTextLineIndex += 1
           detectedTexts.append(topCandidate.string)
         }
       }
+      
       let nonFoodKeywords = ["total", "tax", "balance", "amount", "amt", "cash", "payment", "change", "amex"]
+      
       for text in detectedTexts {
         let priceMatches = self.findPatternMatches(pattern: "[0-9]+\\.[0-9]{2}", text: text)
         if priceMatches.count > 0 {
@@ -80,6 +87,7 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
           }
         }
       }
+      
       self.itemsTableView.reloadData()
       self.foodItemsChanged()
     }
@@ -89,16 +97,20 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
   
   override func viewWillAppear(_ animated: Bool) {
     if ResetManager.sharedResetManager.reset == true {
-      persons.personArray.removeSubrange(1..<persons.personArray.count)
-      persons.personArray[0].moneyOwed = 0.0
-      items.foodItemArray.removeAll()
-      items.otherItemDictionary["tax"] = 0.0
-      items.otherItemDictionary["tip"] = 0.0
-      initialScanReceiptButton.isHidden = false
-      personsCollectionView.reloadData()
-      itemsTableView.reloadData()
+      resetAll()
     }
     ResetManager.sharedResetManager.reset = false
+  }
+  
+  func resetAll() {
+    persons.personArray.removeSubrange(1..<persons.personArray.count)
+    persons.personArray[0].moneyOwed = 0.0
+    items.foodItemArray.removeAll()
+    items.otherItemDictionary["tax"] = 0.0
+    items.otherItemDictionary["tip"] = 0.0
+    initialScanReceiptButton.isHidden = false
+    personsCollectionView.reloadData()
+    itemsTableView.reloadData()
   }
   
   func findPatternMatches(pattern: String, text: String) -> [String] {
