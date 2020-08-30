@@ -123,6 +123,8 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     items.foodItemArray.removeAll()
     items.taxItem = 0.0
     items.tipItem = 0.0
+    let tipItemTableViewCell = itemsTableView.cellForRow(at: IndexPath(row: 1, section: 1)) as! TipItemTableViewCell
+    tipItemTableViewCell.tipSegmentedControl.selectedSegmentIndex = 0
     initialScanReceiptButton.isHidden = false
     personsCollectionView.reloadData()
     itemsTableView.reloadData()
@@ -133,7 +135,10 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     for foodItem in items.foodItemArray {
       totalFoodPrice += foodItem.price
     }
-    //TODO: change tip % buttons
+    
+    let tipItemTableViewCell = itemsTableView.cellForRow(at: IndexPath(row: 1, section: 1)) as! TipItemTableViewCell
+    calculateNewTipValue(tipItemTableViewCell.tipSegmentedControl)
+    
     if totalFoodPrice == 0 {
       continueButton.isEnabled = false
       initialScanReceiptButton.isHidden = false
@@ -225,10 +230,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    if indexPath.section == 0 && indexPath.row < items.foodItemArray.count {
-      return 82
+    if indexPath.section == 0 {
+      if indexPath.row < items.foodItemArray.count {
+        return 82
+      } else {
+        return 48
+      }
+    } else {
+      if indexPath.row == 0 {
+        return 48
+      } else if indexPath.row == 1 {
+        return 86
+      } else {
+        return 48
+      }
     }
-    return 48
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -257,6 +273,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let tipItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "TipItemCell", for: indexPath) as! TipItemTableViewCell
         tipItemCell.priceTextField?.text = NSString(format: "%.2f", items.tipItem) as String
         tipItemCell.priceTextField.addTarget(self, action: #selector(tipPriceTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
+        tipItemCell.tipSegmentedControl.addTarget(self, action: #selector(calculateNewTipValue(_:)), for: UIControl.Event.valueChanged)
         return tipItemCell
       }
     }
@@ -284,15 +301,28 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   @objc func taxPriceTextFieldValueChanged(_ sender: UITextField) {
-    let newPriceValue = Double(sender.text!) ?? 0.0
-    sender.text = NSString(format: "%.2f", newPriceValue) as String
-    items.taxItem = newPriceValue
+    let newTaxValue = Double(sender.text!) ?? 0.0
+    sender.text = NSString(format: "%.2f", newTaxValue) as String
+    items.taxItem = newTaxValue
   }
   
   @objc func tipPriceTextFieldValueChanged(_ sender: UITextField) {
-    let newPriceValue = Double(sender.text!) ?? 0.0
-    sender.text = NSString(format: "%.2f", newPriceValue) as String
-    items.tipItem = newPriceValue
+    let newTipValue = Double(sender.text!) ?? 0.0
+    sender.text = NSString(format: "%.2f", newTipValue) as String
+    if items.tipItem != newTipValue {
+      let tipItemTableViewCell = itemsTableView.cellForRow(at: IndexPath(row: 1, section: 1)) as! TipItemTableViewCell
+      tipItemTableViewCell.tipSegmentedControl.selectedSegmentIndex = -1 // Deselect
+    }
+    items.tipItem = newTipValue
+  }
+  
+  @objc func calculateNewTipValue(_ sender: UISegmentedControl) {
+    let tipRatios = [0.15, 0.18, 0.20]
+    let newTipRatio = tipRatios[sender.selectedSegmentIndex]
+    let newTipValue = newTipRatio * totalFoodPrice
+    let tipItemTableViewCell = itemsTableView.cellForRow(at: IndexPath(row: 1, section: 1)) as! TipItemTableViewCell
+    tipItemTableViewCell.priceTextField.text = NSString(format: "%.2f", newTipValue) as String
+    items.tipItem = newTipValue
   }
 }
 

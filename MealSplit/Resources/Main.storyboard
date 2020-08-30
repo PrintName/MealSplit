@@ -204,11 +204,11 @@
                                             <outlet property="priceTextField" destination="LVt-HS-KeU" id="tq7-iA-vCU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TipItemCell" rowHeight="48" id="X4s-k0-Wve" userLabel="TipItemCell" customClass="TipItemTableViewCell" customModule="MealSplit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="206" width="374" height="48"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TipItemCell" rowHeight="86" id="X4s-k0-Wve" userLabel="TipItemCell" customClass="TipItemTableViewCell" customModule="MealSplit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="206" width="374" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X4s-k0-Wve" id="W6X-a5-X81">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="86"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGj-mX-Nmm">
@@ -235,6 +235,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="reW-Ii-HW5">
+                                                    <rect key="frame" x="220" y="45" width="134" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="CiH-XX-1uw"/>
+                                                        <constraint firstAttribute="width" constant="134" id="wpz-ba-V3K"/>
+                                                    </constraints>
+                                                    <segments>
+                                                        <segment title="15%"/>
+                                                        <segment title="18%"/>
+                                                        <segment title="20%"/>
+                                                    </segments>
+                                                </segmentedControl>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="zGj-mX-Nmm" firstAttribute="centerY" secondItem="5sO-UL-nSL" secondAttribute="centerY" id="A5n-z0-fha"/>
@@ -242,12 +254,15 @@
                                                 <constraint firstItem="PcW-VX-t0h" firstAttribute="centerY" secondItem="zGj-mX-Nmm" secondAttribute="centerY" id="AWV-r8-Gdu"/>
                                                 <constraint firstItem="zGj-mX-Nmm" firstAttribute="leading" secondItem="5sO-UL-nSL" secondAttribute="trailing" constant="6" id="Rmw-a0-hle"/>
                                                 <constraint firstItem="PcW-VX-t0h" firstAttribute="trailing" secondItem="W6X-a5-X81" secondAttribute="trailingMargin" id="Rx2-zM-VYW"/>
+                                                <constraint firstItem="reW-Ii-HW5" firstAttribute="top" secondItem="PcW-VX-t0h" secondAttribute="bottom" constant="8" id="YM9-eX-E9c"/>
                                                 <constraint firstItem="PcW-VX-t0h" firstAttribute="centerY" secondItem="5sO-UL-nSL" secondAttribute="centerY" id="eRF-Sq-RLH"/>
                                                 <constraint firstItem="PcW-VX-t0h" firstAttribute="top" secondItem="W6X-a5-X81" secondAttribute="topMargin" id="l0s-Q3-S8w"/>
+                                                <constraint firstItem="reW-Ii-HW5" firstAttribute="trailing" secondItem="W6X-a5-X81" secondAttribute="trailingMargin" id="nvz-g6-02s"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="priceTextField" destination="PcW-VX-t0h" id="pc0-mu-oyO"/>
+                                            <outlet property="tipSegmentedControl" destination="reW-Ii-HW5" id="dD6-Sj-Hnb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -427,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="86.806596701649184"/>
+            <point key="canvasLocation" x="947.82608695652186" y="86.383928571428569"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="Qu3-4T-XDO">

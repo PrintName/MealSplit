@@ -10,4 +10,5 @@ import UIKit
 
 class TipItemTableViewCell: UITableViewCell {
   @IBOutlet weak var priceTextField: UITextField!
+  @IBOutlet weak var tipSegmentedControl: UISegmentedControl!
 }
