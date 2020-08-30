@@ -258,6 +258,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         foodItemCell.deleteCellButton?.tag = indexPath.row
         foodItemCell.itemTextField?.text = items.foodItemArray[indexPath.row].name.capitalized
         foodItemCell.priceTextField?.text = NSString(format: "%.2f", items.foodItemArray[indexPath.row].price) as String
+        foodItemCell.itemTextField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: UIControl.Event.editingDidBegin)
         foodItemCell.itemTextField.addTarget(self, action: #selector(foodItemTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
         foodItemCell.priceTextField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: UIControl.Event.editingDidBegin)
         foodItemCell.priceTextField.addTarget(self, action: #selector(foodPriceTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
