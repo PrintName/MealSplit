@@ -257,6 +257,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         foodItemCell.itemTextField?.text = items.foodItemArray[indexPath.row].name.capitalized
         foodItemCell.priceTextField?.text = NSString(format: "%.2f", items.foodItemArray[indexPath.row].price) as String
         foodItemCell.itemTextField.addTarget(self, action: #selector(foodItemTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
+        foodItemCell.priceTextField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: UIControl.Event.editingDidBegin)
         foodItemCell.priceTextField.addTarget(self, action: #selector(foodPriceTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
         foodItemCell.deleteCellButton.addTarget(self, action: #selector(deleteCellPressed(_:)), for: UIControl.Event.touchUpInside)
         return foodItemCell
@@ -267,11 +268,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
       if indexPath.row == 0 {
         let taxItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "TaxItemCell", for: indexPath) as! TaxItemTableViewCell
         taxItemCell.priceTextField?.text = NSString(format: "%.2f", items.taxItem) as String
+        taxItemCell.priceTextField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: UIControl.Event.editingDidBegin)
         taxItemCell.priceTextField.addTarget(self, action: #selector(taxPriceTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
         return taxItemCell
       } else {
         let tipItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "TipItemCell", for: indexPath) as! TipItemTableViewCell
         tipItemCell.priceTextField?.text = NSString(format: "%.2f", items.tipItem) as String
+        tipItemCell.priceTextField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: UIControl.Event.editingDidBegin)
         tipItemCell.priceTextField.addTarget(self, action: #selector(tipPriceTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
         tipItemCell.tipSegmentedControl.addTarget(self, action: #selector(calculateNewTipValue(_:)), for: UIControl.Event.valueChanged)
         return tipItemCell
@@ -280,6 +283,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   // MARK: - TableView Actions
+  
+  @objc func textFieldDidBeginEditing(_ sender: UITextField) {
+    sender.text = ""
+  }
   
   @objc func foodItemTextFieldValueChanged(_ sender: UITextField) {
     if items.foodItemArray.count <= sender.tag { return } // Prevent crash when deleting cell while editing
