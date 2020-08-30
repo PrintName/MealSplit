@@ -17,6 +17,7 @@ class ResetManager {
 }
 
 class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
+  // MARK: - Properties
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
@@ -26,10 +27,14 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
   @IBOutlet weak var itemsTableView: UITableView!
   @IBOutlet weak var initialScanReceiptButton: UIButton!
   @IBOutlet weak var continueButton: UIButton!
+  
   var textRecognitionRequest = VNRecognizeTextRequest()
   var persons = Persons()
   var items = Items()
+  
   var totalFoodPrice = 0.0
+  
+  // MARK: - Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,6 +52,15 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
   
     createTextRecognitionRequest()
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    if ResetManager.sharedResetManager.reset == true {
+      resetAll()
+    }
+    ResetManager.sharedResetManager.reset = false
+  }
+  
+  // MARK: - Text Recognition
   
   func createTextRecognitionRequest() {
     textRecognitionRequest = VNRecognizeTextRequest { (request, error) in
@@ -95,11 +109,12 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     textRecognitionRequest.usesLanguageCorrection = true
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    if ResetManager.sharedResetManager.reset == true {
-      resetAll()
+  func findPatternMatches(pattern: String, text: String) -> [String] {
+    let regex = try! NSRegularExpression(pattern: pattern)
+    let matches = regex.matches(in: text, range: NSMakeRange(0, text.count))
+    return matches.map {
+      String(text[Range($0.range, in: text)!])
     }
-    ResetManager.sharedResetManager.reset = false
   }
   
   func resetAll() {
@@ -111,14 +126,6 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     initialScanReceiptButton.isHidden = false
     personsCollectionView.reloadData()
     itemsTableView.reloadData()
-  }
-  
-  func findPatternMatches(pattern: String, text: String) -> [String] {
-    let regex = try! NSRegularExpression(pattern: pattern)
-    let matches = regex.matches(in: text, range: NSMakeRange(0, text.count))
-    return matches.map {
-      String(text[Range($0.range, in: text)!])
-    }
   }
   
   func foodItemsChanged() {
@@ -136,38 +143,13 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     }
   }
   
+  // MARK: - Actions
+  
   @IBAction func receiptScannerPressed(_ sender: UIButton) {
     self.items.foodItemArray.removeAll()
     let documentCameraViewController = VNDocumentCameraViewController()
     documentCameraViewController.delegate = self
     present(documentCameraViewController, animated: true)
-  }
-  
-  func recognizeTextInImage(_ image: UIImage) {
-    guard let cgImage = image.cgImage else { return }
-    let imageRequestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
-    do {
-      try imageRequestHandler.perform([textRecognitionRequest])
-    } catch {
-      print("*** ERROR: \(error)")
-    }
-  }
-  
-  func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-    for page in 0 ..< scan.pageCount {
-      let image = scan.imageOfPage(at: page)
-      recognizeTextInImage(image)
-    }
-    controller.dismiss(animated: true)
-  }
-  
-  func documentCameraViewControllerDidCancel(_ controller: VNDocumentCameraViewController) {
-    controller.dismiss(animated: true)
-  }
-  
-  func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFailWithError error: Error) {
-    print(error)
-    controller.dismiss(animated: true)
   }
   
   @IBAction func addPersonsPressed(_ sender: UIButton) {
@@ -181,6 +163,8 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     itemsTableView.reloadData()
   }
   
+  // MARK: - Segue
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "AssignmentSegue" {
       let destination = segue.destination as! SecondViewController
@@ -192,6 +176,8 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
   @IBAction func unwindToViewController(_ unwindSegue: UIStoryboardSegue) {}
   
 }
+
+// MARK: - CollectionView Config
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -212,6 +198,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     return addPersonCell
   }
   
+  // MARK: - CollectionView Actions
+  
   @objc func personCellTapped(sender: UITapGestureRecognizer) {
     let tappedCellIndex = sender.view!.tag
     if tappedCellIndex > 0 {
@@ -221,6 +209,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
   }
   
 }
+
+// MARK: - TableView Config
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -232,6 +222,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
       return items.foodItemArray.count + 1 // 1 Cell for "Add Items" Button
     }
     return 2
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    if indexPath.section == 0 && indexPath.row < items.foodItemArray.count {
+      return 82
+    }
+    return 48
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -262,6 +259,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     return otherItemCell
   }
   
+  // MARK: - TableView Actions
+  
   @objc func foodItemTextFieldValueChanged(_ sender: UITextField) {
     if items.foodItemArray.count <= sender.tag { return } // Prevent crash when deleting cell while editing
     items.foodItemArray[sender.tag].name = sender.text!
@@ -290,15 +289,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
       items.otherItemDictionary["tip"] = newPriceValue
     }
   }
-  
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    if indexPath.section == 0 && indexPath.row < items.foodItemArray.count {
-      return 82
-    }
-    return 48
-  }
-  
 }
+
+// MARK: - Contact Picker
 
 extension ViewController: CNContactPickerDelegate {
   func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
@@ -316,3 +309,35 @@ extension ViewController: CNContactPickerDelegate {
     self.personsCollectionView.reloadData()
   }
 }
+
+// MARK: - Document Camera
+
+extension ViewController {
+  func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
+    for page in 0 ..< scan.pageCount {
+      let image = scan.imageOfPage(at: page)
+      recognizeTextInImage(image)
+    }
+    controller.dismiss(animated: true)
+  }
+  
+  func recognizeTextInImage(_ image: UIImage) {
+    guard let cgImage = image.cgImage else { return }
+    let imageRequestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+    do {
+      try imageRequestHandler.perform([textRecognitionRequest])
+    } catch {
+      print("*** ERROR: \(error)")
+    }
+  }
+
+  func documentCameraViewControllerDidCancel(_ controller: VNDocumentCameraViewController) {
+    controller.dismiss(animated: true)
+  }
+
+  func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFailWithError error: Error) {
+    print(error)
+    controller.dismiss(animated: true)
+  }
+}
+

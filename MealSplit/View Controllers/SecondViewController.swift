@@ -9,14 +9,18 @@
 import UIKit
 
 class SecondViewController: UIViewController {
+  // MARK: - Properties
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
   }
   
+  @IBOutlet weak var assignmentTableView: UITableView!
+  
   var persons = Persons()
   var items = Items()
-  @IBOutlet weak var assignmentTableView: UITableView!
+  
+  // MARK: - Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -32,11 +36,15 @@ class SecondViewController: UIViewController {
     print(items.otherItemDictionary)
   }
   
+  // MARK: - Actions
+  
   @IBAction func goBack(_ sender: UIButton) {
     for index in 0..<items.foodItemArray.count {
       items.foodItemArray[index].paidBy = 0
     }
   }
+  
+  // MARK: - Segue
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "MoneyOwedSegue" {
@@ -49,6 +57,8 @@ class SecondViewController: UIViewController {
   @IBAction func unwindToViewController(_ unwindSegue: UIStoryboardSegue) {}
   
 }
+
+// MARK: - TableView Config
 
 extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,6 +83,8 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
     assignmentCell.assignmentSegmentedControl.addTarget(self, action: #selector(assignmentSegmentValueChanged(_:)), for: .valueChanged)
     return assignmentCell
   }
+  
+  // MARK: - TableView Actions
   
   @objc func assignmentSegmentValueChanged(_ sender: UISegmentedControl) {
     items.foodItemArray[sender.tag].paidBy = sender.selectedSegmentIndex

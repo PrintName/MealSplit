@@ -9,14 +9,18 @@
 import UIKit
 
 class LastViewController: UIViewController {
+  // MARK: - Properties
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
   }
   
+  @IBOutlet weak var moneyOwedTableView: UITableView!
+  
   var persons = Persons()
   var items = Items()
-  @IBOutlet weak var moneyOwedTableView: UITableView!
+  
+  // MARK: - Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,6 +51,8 @@ class LastViewController: UIViewController {
     }
   }
   
+  // MARK: - Actions
+  
   @IBAction func goBack(_ sender: UIButton) {
     for index in 0..<persons.personArray.count {
       persons.personArray[index].moneyOwed = 0.0
@@ -57,8 +63,9 @@ class LastViewController: UIViewController {
     self.navigationController?.popToRootViewController(animated: true)
     ResetManager.sharedResetManager.reset = true
   }
-  
 }
+
+// MARK: - TableView Config
 
 extension LastViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,5 +84,4 @@ extension LastViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 94
   }
-  
 }
