@@ -15,6 +15,7 @@
 		9F25B38B23864F1600B3CC00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F25B38A23864F1600B3CC00 /* Assets.xcassets */; };
 		9F25B38E23864F1600B3CC00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F25B38C23864F1600B3CC00 /* LaunchScreen.storyboard */; };
 		9F29D62924FB30C000682026 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29D62824FB30C000682026 /* ViewExtension.swift */; };
+		9F29D62B24FB3AE500682026 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29D62A24FB3AE500682026 /* DoubleExtension.swift */; };
 		9F32BC6E23973F22006B788A /* AssignmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F32BC6D23973F22006B788A /* AssignmentTableViewCell.swift */; };
 		9F33F4602395AEB9003E3FBD /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F33F45F2395AEB9003E3FBD /* Person.swift */; };
 		9F33F4622395AED0003E3FBD /* Persons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F33F4612395AED0003E3FBD /* Persons.swift */; };
@@ -40,6 +41,7 @@
 		9F25B38D23864F1600B3CC00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F25B38F23864F1600B3CC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F29D62824FB30C000682026 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		9F29D62A24FB3AE500682026 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		9F32BC6D23973F22006B788A /* AssignmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentTableViewCell.swift; sourceTree = "<group>"; };
 		9F33F45F2395AEB9003E3FBD /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		9F33F4612395AED0003E3FBD /* Persons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persons.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				9F29D62824FB30C000682026 /* ViewExtension.swift */,
+				9F29D62A24FB3AE500682026 /* DoubleExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				9F33F4602395AEB9003E3FBD /* Person.swift in Sources */,
 				9FD9F0752397CC6100920DFA /* ViewController.swift in Sources */,
 				9F25B38423864F1600B3CC00 /* AppDelegate.swift in Sources */,
+				9F29D62B24FB3AE500682026 /* DoubleExtension.swift in Sources */,
 				9F29D62924FB30C000682026 /* ViewExtension.swift in Sources */,
 				9F1EA18A2399C8AC006FCA8F /* LastViewController.swift in Sources */,
 				9F1EA18C2399C908006FCA8F /* MoneyOwedTableViewCell.swift in Sources */,

@@ -78,13 +78,5 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
     items.foodItemArray[sender.tag].paidBy = sender.selectedSegmentIndex
     print("\(items.foodItemArray[sender.tag].name) = \(items.foodItemArray[sender.tag].paidBy)")
   }
-  
 }
 
-extension Double {
-  func roundToTwoDecimals() -> Double {
-    let divisor = 100.0
-    let result = (self * divisor).rounded() / divisor
-    return result
-  }
-}
