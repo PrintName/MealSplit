@@ -24,14 +24,17 @@ class LastViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     moneyOwedTableView.delegate = self
     moneyOwedTableView.dataSource = self
+    
     calculateMoneyOwed()
   }
   
   func calculateMoneyOwed() {
     var totalFoodCost: Double = 0.0
     var sharedFoodCost: Double = 0.0
+    
     for foodItem in items.foodItemArray {
       if foodItem.paidBy == 0 {
         sharedFoodCost += foodItem.price
@@ -41,7 +44,9 @@ class LastViewController: UIViewController {
       }
       totalFoodCost += foodItem.price
     }
+    
     let individualSharedFoodCost = sharedFoodCost / Double(persons.personArray.count)
+    
     for index in 0..<persons.personArray.count {
       persons.personArray[index].moneyOwed += individualSharedFoodCost
       let paymentRatio: Double = persons.personArray[index].moneyOwed / totalFoodCost

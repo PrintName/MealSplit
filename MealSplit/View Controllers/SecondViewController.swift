@@ -24,6 +24,7 @@ class SecondViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     assignmentTableView.delegate = self
     assignmentTableView.dataSource = self
   }
