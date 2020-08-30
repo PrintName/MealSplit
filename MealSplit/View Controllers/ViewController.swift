@@ -247,16 +247,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
       }
       let addItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "AddItemCell", for: indexPath)
       return addItemCell
-    } else if indexPath.row == items.foodItemArray.count {
-      let taxItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "TaxItemCell", for: indexPath) as! TaxItemTableViewCell
-      taxItemCell.priceTextField?.text = NSString(format: "%.2f", items.taxItem) as String
-      taxItemCell.priceTextField.addTarget(self, action: #selector(taxPriceTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
-      return taxItemCell
     } else {
-      let tipItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "TipItemCell", for: indexPath) as! TipItemTableViewCell
-      tipItemCell.priceTextField?.text = NSString(format: "%.2f", items.tipItem) as String
-      tipItemCell.priceTextField.addTarget(self, action: #selector(tipPriceTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
-      return tipItemCell
+      if indexPath.row == 0 {
+        let taxItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "TaxItemCell", for: indexPath) as! TaxItemTableViewCell
+        taxItemCell.priceTextField?.text = NSString(format: "%.2f", items.taxItem) as String
+        taxItemCell.priceTextField.addTarget(self, action: #selector(taxPriceTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
+        return taxItemCell
+      } else {
+        let tipItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "TipItemCell", for: indexPath) as! TipItemTableViewCell
+        tipItemCell.priceTextField?.text = NSString(format: "%.2f", items.tipItem) as String
+        tipItemCell.priceTextField.addTarget(self, action: #selector(tipPriceTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
+        return tipItemCell
+      }
     }
   }
   
