@@ -1,5 +1,5 @@
 //
-//  OtherItemTableViewCell.swift
+//  TaxItemTableViewCell.swift
 //  MealSplit
 //
 //  Created by Allen Li on 12/4/19.
@@ -8,7 +8,6 @@
 
 import UIKit
 
-class OtherItemTableViewCell: UITableViewCell {
-  @IBOutlet weak var otherTextLabel: UILabel!
+class TaxItemTableViewCell: UITableViewCell {
   @IBOutlet weak var priceTextField: UITextField!
 }

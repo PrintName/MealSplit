@@ -34,7 +34,8 @@ class SecondViewController: UIViewController {
     assignmentTableView.reloadData()
     print()
     print(items.foodItemArray)
-    print(items.otherItemDictionary)
+    print(items.taxItem)
+    print(items.tipItem)
   }
   
   // MARK: - Actions

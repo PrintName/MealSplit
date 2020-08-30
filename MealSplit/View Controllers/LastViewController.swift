@@ -50,8 +50,8 @@ class LastViewController: UIViewController {
     for index in 0..<persons.personArray.count {
       persons.personArray[index].moneyOwed += individualSharedFoodCost
       let paymentRatio: Double = persons.personArray[index].moneyOwed / totalFoodCost
-      let individualTaxCost = paymentRatio * items.otherItemDictionary["tax"]!
-      let individualTipCost = paymentRatio * items.otherItemDictionary["tip"]!
+      let individualTaxCost = paymentRatio * items.taxItem
+      let individualTipCost = paymentRatio * items.tipItem
       persons.personArray[index].moneyOwed += individualTaxCost + individualTipCost
     }
   }

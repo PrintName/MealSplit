@@ -95,9 +95,9 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
             let trimmedNameResult = nameResult.trimmingCharacters(in: .whitespacesAndNewlines)
             self.items.foodItemArray.append(FoodItem(name: trimmedNameResult, price: priceResult))
           } else if nameResult.lowercased().contains("tax") {
-            self.items.otherItemDictionary["tax"] = priceResult
+            self.items.taxItem = priceResult
           } else if nameResult.lowercased().contains("tip") || nameResult.lowercased().contains("gratuity") {
-            self.items.otherItemDictionary["tip"] = priceResult
+            self.items.tipItem = priceResult
           }
         }
       }
@@ -121,8 +121,8 @@ class ViewController: UIViewController, VNDocumentCameraViewControllerDelegate {
     persons.personArray.removeSubrange(1..<persons.personArray.count)
     persons.personArray[0].moneyOwed = 0.0
     items.foodItemArray.removeAll()
-    items.otherItemDictionary["tax"] = 0.0
-    items.otherItemDictionary["tip"] = 0.0
+    items.taxItem = 0.0
+    items.tipItem = 0.0
     initialScanReceiptButton.isHidden = false
     personsCollectionView.reloadData()
     itemsTableView.reloadData()
@@ -247,16 +247,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
       }
       let addItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "AddItemCell", for: indexPath)
       return addItemCell
+    } else if indexPath.row == items.foodItemArray.count {
+      let taxItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "TaxItemCell", for: indexPath) as! TaxItemTableViewCell
+      taxItemCell.priceTextField?.text = NSString(format: "%.2f", items.taxItem) as String
+      taxItemCell.priceTextField.addTarget(self, action: #selector(taxPriceTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
+      return taxItemCell
+    } else {
+      let tipItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "TipItemCell", for: indexPath) as! TipItemTableViewCell
+      tipItemCell.priceTextField?.text = NSString(format: "%.2f", items.tipItem) as String
+      tipItemCell.priceTextField.addTarget(self, action: #selector(tipPriceTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
+      return tipItemCell
     }
-    //TODO: Change to two cells, tax and tip with buttons
-    let otherItemCell = itemsTableView.dequeueReusableCell(withIdentifier: "OtherItemCell", for: indexPath) as! OtherItemTableViewCell
-    otherItemCell.priceTextField?.tag = indexPath.row
-    let otherItemArray = ["tax", "tip"]
-    let currentOtherItem = otherItemArray[indexPath.row]
-    otherItemCell.otherTextLabel?.text = currentOtherItem.capitalized
-    otherItemCell.priceTextField?.text = NSString(format: "%.2f", items.otherItemDictionary[currentOtherItem]!) as String
-    otherItemCell.priceTextField.addTarget(self, action: #selector(otherPriceTextFieldValueChanged(_:)), for: UIControl.Event.editingDidEnd)
-    return otherItemCell
   }
   
   // MARK: - TableView Actions
@@ -280,14 +281,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     foodItemsChanged()
   }
   
-  @objc func otherPriceTextFieldValueChanged(_ sender: UITextField) {
+  @objc func taxPriceTextFieldValueChanged(_ sender: UITextField) {
     let newPriceValue = Double(sender.text!) ?? 0.0
     sender.text = NSString(format: "%.2f", newPriceValue) as String
-    if sender.tag == 0 {
-      items.otherItemDictionary["tax"] = newPriceValue
-    } else {
-      items.otherItemDictionary["tip"] = newPriceValue
-    }
+    items.taxItem = newPriceValue
+  }
+  
+  @objc func tipPriceTextFieldValueChanged(_ sender: UITextField) {
+    let newPriceValue = Double(sender.text!) ?? 0.0
+    sender.text = NSString(format: "%.2f", newPriceValue) as String
+    items.tipItem = newPriceValue
   }
 }
 

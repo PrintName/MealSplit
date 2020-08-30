@@ -16,13 +16,14 @@
 		9F25B38E23864F1600B3CC00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F25B38C23864F1600B3CC00 /* LaunchScreen.storyboard */; };
 		9F29D62924FB30C000682026 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29D62824FB30C000682026 /* ViewExtension.swift */; };
 		9F29D62B24FB3AE500682026 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29D62A24FB3AE500682026 /* DoubleExtension.swift */; };
+		9F29D62D24FB599200682026 /* TipItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29D62C24FB599200682026 /* TipItemTableViewCell.swift */; };
 		9F32BC6E23973F22006B788A /* AssignmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F32BC6D23973F22006B788A /* AssignmentTableViewCell.swift */; };
 		9F33F4602395AEB9003E3FBD /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F33F45F2395AEB9003E3FBD /* Person.swift */; };
 		9F33F4622395AED0003E3FBD /* Persons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F33F4612395AED0003E3FBD /* Persons.swift */; };
 		9FB5D89E23958D0C00561EEE /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5D89D23958D0C00561EEE /* FoodItem.swift */; };
 		9FD9F0692397C91C00920DFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FD9F0682397C91C00920DFA /* Main.storyboard */; };
 		9FD9F0752397CC6100920DFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9F0742397CC6100920DFA /* ViewController.swift */; };
-		9FD9F0772397CCE200920DFA /* OtherItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9F0762397CCE200920DFA /* OtherItemTableViewCell.swift */; };
+		9FD9F0772397CCE200920DFA /* TaxItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9F0762397CCE200920DFA /* TaxItemTableViewCell.swift */; };
 		9FD9F0792397CED600920DFA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9F0782397CED600920DFA /* SecondViewController.swift */; };
 		9FD9F07B2397CF0800920DFA /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9F07A2397CF0800920DFA /* Items.swift */; };
 		9FD9F07D2397CF2100920DFA /* FoodItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9F07C2397CF2100920DFA /* FoodItemTableViewCell.swift */; };
@@ -42,13 +43,14 @@
 		9F25B38F23864F1600B3CC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F29D62824FB30C000682026 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		9F29D62A24FB3AE500682026 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		9F29D62C24FB599200682026 /* TipItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipItemTableViewCell.swift; sourceTree = "<group>"; };
 		9F32BC6D23973F22006B788A /* AssignmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentTableViewCell.swift; sourceTree = "<group>"; };
 		9F33F45F2395AEB9003E3FBD /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		9F33F4612395AED0003E3FBD /* Persons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persons.swift; sourceTree = "<group>"; };
 		9FB5D89D23958D0C00561EEE /* FoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
 		9FD9F0682397C91C00920DFA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9FD9F0742397CC6100920DFA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9FD9F0762397CCE200920DFA /* OtherItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherItemTableViewCell.swift; sourceTree = "<group>"; };
+		9FD9F0762397CCE200920DFA /* TaxItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxItemTableViewCell.swift; sourceTree = "<group>"; };
 		9FD9F0782397CED600920DFA /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		9FD9F07A2397CF0800920DFA /* Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		9FD9F07C2397CF2100920DFA /* FoodItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -170,7 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				9FD9F07C2397CF2100920DFA /* FoodItemTableViewCell.swift */,
-				9FD9F0762397CCE200920DFA /* OtherItemTableViewCell.swift */,
+				9FD9F0762397CCE200920DFA /* TaxItemTableViewCell.swift */,
+				9F29D62C24FB599200682026 /* TipItemTableViewCell.swift */,
 				9F32BC6D23973F22006B788A /* AssignmentTableViewCell.swift */,
 				9F1EA18B2399C908006FCA8F /* MoneyOwedTableViewCell.swift */,
 				9FD9F07E2397CF3800920DFA /* PersonCollectionViewCell.swift */,
@@ -298,6 +301,7 @@
 				9FD9F0792397CED600920DFA /* SecondViewController.swift in Sources */,
 				9F32BC6E23973F22006B788A /* AssignmentTableViewCell.swift in Sources */,
 				9F33F4622395AED0003E3FBD /* Persons.swift in Sources */,
+				9F29D62D24FB599200682026 /* TipItemTableViewCell.swift in Sources */,
 				9FD9F07B2397CF0800920DFA /* Items.swift in Sources */,
 				9FB5D89E23958D0C00561EEE /* FoodItem.swift in Sources */,
 				9FD9F07F2397CF3800920DFA /* PersonCollectionViewCell.swift in Sources */,
@@ -308,7 +312,7 @@
 				9F29D62924FB30C000682026 /* ViewExtension.swift in Sources */,
 				9F1EA18A2399C8AC006FCA8F /* LastViewController.swift in Sources */,
 				9F1EA18C2399C908006FCA8F /* MoneyOwedTableViewCell.swift in Sources */,
-				9FD9F0772397CCE200920DFA /* OtherItemTableViewCell.swift in Sources */,
+				9FD9F0772397CCE200920DFA /* TaxItemTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

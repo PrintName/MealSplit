@@ -158,7 +158,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="OtherItemCell" rowHeight="48" id="YyI-pP-5iT" customClass="OtherItemTableViewCell" customModule="MealSplit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TaxItemCell" rowHeight="48" id="YyI-pP-5iT" userLabel="TaxItemCell" customClass="TaxItemTableViewCell" customModule="MealSplit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="158" width="374" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YyI-pP-5iT" id="Eqf-Bg-XPI">
@@ -180,7 +180,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tax" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sT1-x2-ufR">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tax:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sT1-x2-ufR">
                                                     <rect key="frame" x="209" y="14" width="40" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="vol-ZQ-KVF"/>
@@ -201,8 +201,53 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="otherTextLabel" destination="sT1-x2-ufR" id="Hh5-uh-snf"/>
                                             <outlet property="priceTextField" destination="LVt-HS-KeU" id="tq7-iA-vCU"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TipItemCell" rowHeight="48" id="X4s-k0-Wve" userLabel="TipItemCell" customClass="TipItemTableViewCell" customModule="MealSplit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="206" width="374" height="48"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X4s-k0-Wve" id="W6X-a5-X81">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGj-mX-Nmm">
+                                                    <rect key="frame" x="255" y="14" width="11" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="00.00" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PcW-VX-t0h">
+                                                    <rect key="frame" x="270" y="11" width="84" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="84" id="X9d-rx-XUx"/>
+                                                        <constraint firstAttribute="height" constant="26" id="exA-6T-GiW"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sO-UL-nSL">
+                                                    <rect key="frame" x="209" y="14" width="40" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="T4u-1N-hQS"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zGj-mX-Nmm" firstAttribute="centerY" secondItem="5sO-UL-nSL" secondAttribute="centerY" id="A5n-z0-fha"/>
+                                                <constraint firstItem="PcW-VX-t0h" firstAttribute="leading" secondItem="zGj-mX-Nmm" secondAttribute="trailing" constant="4" id="AB0-0V-dWD"/>
+                                                <constraint firstItem="PcW-VX-t0h" firstAttribute="centerY" secondItem="zGj-mX-Nmm" secondAttribute="centerY" id="AWV-r8-Gdu"/>
+                                                <constraint firstItem="zGj-mX-Nmm" firstAttribute="leading" secondItem="5sO-UL-nSL" secondAttribute="trailing" constant="6" id="Rmw-a0-hle"/>
+                                                <constraint firstItem="PcW-VX-t0h" firstAttribute="trailing" secondItem="W6X-a5-X81" secondAttribute="trailingMargin" id="Rx2-zM-VYW"/>
+                                                <constraint firstItem="PcW-VX-t0h" firstAttribute="centerY" secondItem="5sO-UL-nSL" secondAttribute="centerY" id="eRF-Sq-RLH"/>
+                                                <constraint firstItem="PcW-VX-t0h" firstAttribute="top" secondItem="W6X-a5-X81" secondAttribute="topMargin" id="l0s-Q3-S8w"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="priceTextField" destination="PcW-VX-t0h" id="pc0-mu-oyO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
